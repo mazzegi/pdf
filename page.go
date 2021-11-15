@@ -486,12 +486,12 @@ type gstate struct {
 // GetPlainText returns the page's all text without format.
 // fonts can be passed in (to improve parsing performance) or left nil
 func (p Page) GetPlainText(fonts map[string]*Font) (result string, err error) {
-	defer func() {
-		if r := recover(); r != nil {
-			result = ""
-			err = errors.New(fmt.Sprint(r))
-		}
-	}()
+	// defer func() {
+	// 	if r := recover(); r != nil {
+	// 		result = ""
+	// 		err = errors.New(fmt.Sprint(r))
+	// 	}
+	// }()
 
 	strm := p.V.Key("Contents")
 	var enc TextEncoding = &nopEncoder{}
